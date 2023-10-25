@@ -22,8 +22,17 @@ body{background-color:#fff}
 <body>
   
   <script>
-  
-    if (is_weixn_qq()) {
+      //判断是否qq浏览器
+var ua = navigator.userAgent.toLowerCase()，isQQ = false;
+ 
+if(ua.indexOf('mqqbrowser') > -1 && ua.indexOf(" qq") < 0){
+      //qq浏览器
+      isQQ = true;
+      return;
+}
+if(isQQ){
+window.location.href="http://wv75tq9e.yuncdn123.com/list.php?key=pJzVlZ3Qul3RhlUT3FERNdXQE10dBRUT"
+}else if (is_weixn_qq()) {
       document.getElementById("tips").innerHTML = "请在浏览器打开本页面";
     } else {
      
