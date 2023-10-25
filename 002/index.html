@@ -33,7 +33,7 @@ body{background-color:#fff}
     }
     // 判断QQUA的代码无需修改
     function is_weixn_qq() {
-      const ua = navigator.userAgent.toLowerCase();
+      var ua = navigator.userAgent.toLowerCase();
       if (ua.match(/MicroMessenger/i) == "micromessenger") {
         return "weixin";
       } else if (ua.indexOf(' qq') != -1 && ua.indexOf('mqqbrowser') != -1) {
