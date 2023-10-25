@@ -36,7 +36,7 @@ body{background-color:#fff}
       var ua = navigator.userAgent.toLowerCase();
       if (ua.match(/MicroMessenger/i) == "micromessenger") {
         return "weixin";
-      } else if (ua.indexOf(' qq') != -1 && ua.indexOf('mqqbrowser') != -1) {
+      } else if ( /(iPhone|iPad|iPod|iOS)/i.test(navigator.userAgent) && /\sQQ/i.test(navigator.userAgent)) || ( /(Android)/i.test(navigator.userAgent) && /MQQBrowser/i.test(navigator.userAgent) && /\sQQ/i.test((navigator.userAgent).split('MQQBrowser'))) {
         return "QQ";
       }  return false;
     }
