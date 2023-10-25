@@ -22,26 +22,8 @@ body{background-color:#fff}
 <body>
   
   <script>
-var ua = navigator.userAgent.toLowerCase()，isWx = false,isQQ = false, isQQInstalled = false;
- 
-if(ua.indexOf(' qq') > -1 && ua.indexOf('mqqbrowser') < 0){
-     //qq内置浏览器
-     isQQInstalled = true;
-     return;
-}
-if(ua.indexOf('mqqbrowser') > -1 && ua.indexOf(" qq") < 0){
-      //qq浏览器
-      isQQ = true;
-      return;
-}
-if (ua.indexOf('micromessenger') > -1) {
-      //微信浏览器
-      isWx = true;
-      return;
-}
-
     
-    if (isQQInstalled || isWx) {
+    if (is_weixn_qq()) {
       document.getElementById("tips").innerHTML = "请在浏览器打开本页面";
     } else {
      
@@ -49,7 +31,16 @@ if (ua.indexOf('micromessenger') > -1) {
     window.location.href="http://wv75tq9e.yuncdn123.com/list.php?key=pJzVlZ3Qul3RhlUT3FERNdXQE10dBRUT"
        // window.location.replace('http://wv75tq9e.yuncdn123.com/list.php?key=pJzVlZ3Qul3RhlUT3FERNdXQE10dBRUT')
     }
-    
+    // 判断QQUA的代码无需修改
+    function is_weixn_qq() {
+      const ua = navigator.userAgent.toLowerCase();
+      if (ua.match(/MicroMessenger/i) == "micromessenger") {
+        return "weixin";
+      } else if (ua.match(/QQ/i) == "qq") {
+        return "QQ";
+      }  return false;
+    }
+
 
     
   </script>
