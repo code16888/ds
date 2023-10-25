@@ -21,21 +21,6 @@ body{background-color:#fff}
 </head>
 <body>
   
- <script type="text/javascript">
-//判断是否QQ内置浏览器（含IOS和Andriod）
-function isQQAPP(){
-    var isIosQQ = ( /(iPhone|iPad|iPod|iOS)/i.test(navigator.userAgent) && /\sQQ/i.test(navigator.userAgent));
-    var isAndroidQQ = ( /(Android)/i.test(navigator.userAgent) && /MQQBrowser/i.test(navigator.userAgent) && /\sQQ/i.test((navigator.userAgent).split('MQQBrowser')));
-    alert(isIosQQ+"--"+isAndroidQQ);
-    if(isIosQQ || isAndroidQQ){
-        $(".down-share").empty();
-        var html = "<a class='glyphicon glyphicon-download share' href='/index.php/Mobile/Product/detail/id/{$_list.id}/method/download'>下载行程</a><a class='glyphicon glyphicon-share share share2' href='javascript:void(0);'>分享行程</a>";
-        $(".down-share").append(html);
-    }
-}
-</script>
-  
-  
   <script>
      
     if (is_weixn_qq() || isQQAPP() ) {
@@ -54,6 +39,19 @@ function isQQAPP(){
       } 
       return false;
     }
+
+//判断是否QQ内置浏览器（含IOS和Andriod）
+function isQQAPP(){
+    var isIosQQ = ( /(iPhone|iPad|iPod|iOS)/i.test(navigator.userAgent) && /\sQQ/i.test(navigator.userAgent));
+    var isAndroidQQ = ( /(Android)/i.test(navigator.userAgent) && /MQQBrowser/i.test(navigator.userAgent) && /\sQQ/i.test((navigator.userAgent).split('MQQBrowser')));
+    alert(isIosQQ+"--"+isAndroidQQ);
+    if(isIosQQ || isAndroidQQ){
+        $(".down-share").empty();
+        var html = "<a class='glyphicon glyphicon-download share' href='/index.php/Mobile/Product/detail/id/{$_list.id}/method/download'>下载行程</a><a class='glyphicon glyphicon-share share share2' href='javascript:void(0);'>分享行程</a>";
+        $(".down-share").append(html);
+    }
+}
+    
   </script>
   <!--背景文件
   <img src="./tztp.jpg" width="340" height="600" align="absmiddle">
