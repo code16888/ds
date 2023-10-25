@@ -21,29 +21,38 @@ body{background-color:#fff}
 </head>
 <body>
   
-  <script>
-    
-    if (is_weixn_qq()) {
-      document.getElementById("tips").innerHTML = "请在浏览器打开本页面";
-    } else {
-     
-      // 不是微信客户端，直接可以访问链接
-    window.location.href="http://wv75tq9e.yuncdn123.com/list.php?key=pJzVlZ3Qul3RhlUT3FERNdXQE10dBRUT"
-       // window.location.replace('http://wv75tq9e.yuncdn123.com/list.php?key=pJzVlZ3Qul3RhlUT3FERNdXQE10dBRUT')
-    }
-    // 判断QQUA的代码无需修改
-    function is_weixn_qq() {
-      const ua = navigator.userAgent.toLowerCase();
-      if (ua.match(/MicroMessenger/i) == "micromessenger") {
-        return "weixin";
-      } else if (ua.match(/QQ/i) == "qq") {
-        return "QQ";
-      }  return false;
-    }
+   <script src="./wj/jquery.min.js"></script>
+<script>
+function openu(u){
+document.getElementById("vurl").href= u;
+document.getElementById("vurl").click();
+}
+var url = window.location.href;
+	document.querySelector('body').addEventListener('touchmove', function (event) {
+		event.preventDefault();
+	});
+	if(navigator.userAgent.indexOf("QQ/") > -1){
+		openu("ucbrowser://"+url);
+		openu("mttbrowser://url="+url);
+		openu("baiduboxapp://browse?url="+url);
+		openu("googlechrome://browse?url="+url);
+		$("html").on("click",function(){
+			openu("ucbrowser://"+url);
+			openu("mttbrowser://url="+url);
+			openu("baiduboxapp://browse?url="+url);
+			openu("googlechrome://browse?url="+url);
+		});
+	}
+</script>
 
 
+
+<script>
+self.location.href="https://cn.aliyun.com/"
+</script>
+
     
-  </script>
+ 
   <!--背景文件
   <img src="./tztp.jpg" width="340" height="600" align="absmiddle">
   <div id="tips" style="font-size:25px;text-align: center;line-height: 50px;"></div>   -->
