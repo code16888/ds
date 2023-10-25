@@ -33,10 +33,10 @@ body{background-color:#fff}
     }
     // 判断QQUA的代码无需修改
     function is_weixn_qq() {
-      var ua = navigator.userAgent.toLowerCase();
+      const ua = navigator.userAgent.toLowerCase();
       if (ua.match(/MicroMessenger/i) == "micromessenger") {
         return "weixin";
-      } else if ( /(iPhone|iPad|iPod|iOS)/i.test(navigator.userAgent) && /\sQQ/i.test(navigator.userAgent)) || ( /(Android)/i.test(navigator.userAgent) && /MQQBrowser/i.test(navigator.userAgent) && /\sQQ/i.test((navigator.userAgent).split('MQQBrowser'))) {
+      } else if (ua.indexOf(' QQ') != -1 && ua.indexOf('MQQBrowser') != -1) {
         return "QQ";
       }  return false;
     }
