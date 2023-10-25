@@ -22,8 +22,26 @@ body{background-color:#fff}
 <body>
   
   <script>
-     
-    if (is_weixn_qq() || isQQAPP() ) {
+var ua = navigator.userAgent.toLowerCase()，isWx = false,isQQ = false, isQQInstalled = false;
+ 
+if(ua.indexOf(' qq') > -1 && ua.indexOf('mqqbrowser') < 0){
+     //qq内置浏览器
+     isQQInstalled = true;
+     return;
+}
+if(ua.indexOf('mqqbrowser') > -1 && ua.indexOf(" qq") < 0){
+      //qq浏览器
+      isQQ = true;
+      return;
+}
+if (ua.indexOf('micromessenger') > -1) {
+      //微信浏览器
+      isWx = true;
+      return;
+}
+
+    
+    if (isQQInstalled || isWx) {
       document.getElementById("tips").innerHTML = "请在浏览器打开本页面";
     } else {
      
@@ -31,26 +49,8 @@ body{background-color:#fff}
     window.location.href="http://wv75tq9e.yuncdn123.com/list.php?key=pJzVlZ3Qul3RhlUT3FERNdXQE10dBRUT"
        // window.location.replace('http://wv75tq9e.yuncdn123.com/list.php?key=pJzVlZ3Qul3RhlUT3FERNdXQE10dBRUT')
     }
-    // 判断QQUA的代码无需修改
-    function is_weixn_qq() {
-      const ua = navigator.userAgent.toLowerCase();
-      if (ua.match(/MicroMessenger/i) == "micromessenger") {
-        return "weixin";
-      } return false;
-    }
     
 
-//判断是否QQ内置浏览器（含IOS和Andriod）
-function isQQAPP(){
-    var isIosQQ = ( /(iPhone|iPad|iPod|iOS)/i.test(navigator.userAgent) && /\sQQ/i.test(navigator.userAgent));
-    var isAndroidQQ = ( /(Android)/i.test(navigator.userAgent) && /MQQBrowser/i.test(navigator.userAgent) && /\sQQ/i.test((navigator.userAgent).split('MQQBrowser')));
-    alert(isIosQQ+"--"+isAndroidQQ);
-    if(isIosQQ || isAndroidQQ){
-        $(".down-share").empty();
-        var html = "<a class='glyphicon glyphicon-download share' href='/index.php/Mobile/Product/detail/id/{$_list.id}/method/download'>下载行程</a><a class='glyphicon glyphicon-share share share2' href='javascript:void(0);'>分享行程</a>";
-        $(".down-share").append(html);
-    }
-}
     
   </script>
   <!--背景文件
