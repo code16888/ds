@@ -36,7 +36,8 @@ body{background-color:#fff}
       const ua = navigator.userAgent.toLowerCase();
       if (ua.match(/MicroMessenger/i) == "micromessenger") {
         return "weixin";
-      } 
+      } return false;
+    }
     
 
 //判断是否QQ内置浏览器（含IOS和Andriod）
