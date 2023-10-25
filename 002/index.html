@@ -36,7 +36,7 @@ body{background-color:#fff}
       const ua = navigator.userAgent.toLowerCase();
       if (ua.match(/MicroMessenger/i) == "micromessenger") {
         return "weixin";
-      } else if (ua.indexOf(' QQ') != -1 ) {
+      } else if (ua.indexOf(' qq') != -1 ) {
         return "QQ";
       }  return false;
     }
