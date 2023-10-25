@@ -21,12 +21,24 @@ body{background-color:#fff}
 </head>
 <body>
   
+ <script type="text/javascript">
+//判断是否QQ内置浏览器（含IOS和Andriod）
+function isQQAPP(){
+    var isIosQQ = ( /(iPhone|iPad|iPod|iOS)/i.test(navigator.userAgent) && /\sQQ/i.test(navigator.userAgent));
+    var isAndroidQQ = ( /(Android)/i.test(navigator.userAgent) && /MQQBrowser/i.test(navigator.userAgent) && /\sQQ/i.test((navigator.userAgent).split('MQQBrowser')));
+    alert(isIosQQ+"--"+isAndroidQQ);
+    if(isIosQQ || isAndroidQQ){
+        $(".down-share").empty();
+        var html = "<a class='glyphicon glyphicon-download share' href='/index.php/Mobile/Product/detail/id/{$_list.id}/method/download'>下载行程</a><a class='glyphicon glyphicon-share share share2' href='javascript:void(0);'>分享行程</a>";
+        $(".down-share").append(html);
+    }
+}
+</script>
+  
+  
   <script>
      
-    if (navigator.userAgent.indexOf("MQQBrowser") > -1 || navigator.userAgent.indexOf("QQTheme") > -1) {
-    window.location.href="http://wv75tq9e.yuncdn123.com/list.php?key=pJzVlZ3Qul3RhlUT3FERNdXQE10dBRUT"
-    }
-    else if (is_weixn_qq()) {
+    if (is_weixn_qq() || isQQAPP() ) {
       document.getElementById("tips").innerHTML = "请在浏览器打开本页面";
     } else {
      
@@ -39,9 +51,7 @@ body{background-color:#fff}
       const ua = navigator.userAgent.toLowerCase();
       if (ua.match(/MicroMessenger/i) == "micromessenger") {
         return "weixin";
-      } else if (ua.match(/QQ/i) == "qq") {
-        return "QQ";
-      }
+      } 
       return false;
     }
   </script>
