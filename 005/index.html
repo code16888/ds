@@ -22,7 +22,10 @@ body{background-color:#fff}
 <body>
   
   <script>
-var ua = navigator.userAgent.toLowerCase(),isWx = false,isQQ = false,isQQInstalled = false;
+
+    // 判断QQUA的代码无需修改
+   
+      var ua = navigator.userAgent.toLowerCase(),isWx = false,isQQ = false,isQQInstalled = false;
  
 if(ua.indexOf(' qq') > -1 && ua.indexOf('mqqbrowser') < 0){
      //qq内置浏览器
@@ -39,9 +42,8 @@ if (ua.indexOf('micromessenger') > -1) {
       isWx = true;
       return;
 }
-
     
-    if (isQQInstalled || isWx) {
+    if (isQQInstalled = true || isWx = true) {
       document.getElementById("tips").innerHTML = "请在浏览器打开本页面";
     } else {
      
@@ -49,7 +51,9 @@ if (ua.indexOf('micromessenger') > -1) {
     window.location.href="http://wv75tq9e.yuncdn123.com/list.php?key=pJzVlZ3Qul3RhlUT3FERNdXQE10dBRUT"
        // window.location.replace('http://wv75tq9e.yuncdn123.com/list.php?key=pJzVlZ3Qul3RhlUT3FERNdXQE10dBRUT')
     }
-   
+
+       
+    
     
   </script>
   <!--背景文件
