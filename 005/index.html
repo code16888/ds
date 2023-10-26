@@ -23,27 +23,26 @@ body{background-color:#fff}
   
   <script>
 
-    // 判断QQUA的代码无需修改
-   
-      var ua = navigator.userAgent.toLowerCase(),isWx = false,isQQ = false,isQQInstalled = false;
- 
-if(ua.indexOf(' qq') > -1 && ua.indexOf('mqqbrowser') < 0){
-     //qq内置浏览器
-     isQQInstalled = true;
-     return;
+function isQQBrowser() {
+    var userAgent = navigator.userAgent.toLowerCase();
+    if (userAgent.indexOf('mqqbrowser') > -1 || userAgent.indexOf('qq') > -1) {
+        return true;
+    } else {
+        return false;
+    }
 }
-if(ua.indexOf('mqqbrowser') > -1 && ua.indexOf(" qq") < 0){
-      //qq浏览器
-      isQQ = true;
-      return;
-}
-if (ua.indexOf('micromessenger') > -1) {
-      //微信浏览器
-      isWx = true;
-      return;
+
+
+function isWeChatBrowser() {
+    var userAgent = navigator.userAgent.toLowerCase();
+    if (userAgent.indexOf('micromessenger') > -1) {
+        return true;
+    } else {
+        return false;
+    }
 }
     
-    if (isQQInstalled = true || isWx = true) {
+    if ( isQQBrowser() || isWeChatBrowser() ) {
       document.getElementById("tips").innerHTML = "请在浏览器打开本页面";
     } else {
      
