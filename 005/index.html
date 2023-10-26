@@ -23,26 +23,9 @@ body{background-color:#fff}
   
   <script>
 
-function isQQBrowser() {
-    var userAgent = navigator.userAgent.toLowerCase();
-    if (userAgent.indexOf('mqqbrowser') > -1 || userAgent.indexOf('qq') > -1) {
-        return true;
-    } else {
-        return false;
-    }
-}
 
-
-function isWeChatBrowser() {
-    var userAgent = navigator.userAgent.toLowerCase();
-    if (userAgent.indexOf('micromessenger') > -1) {
-        return true;
-    } else {
-        return false;
-    }
-}
     
-    if ( isQQBrowser() || isWeChatBrowser() ) {
+    if (is_weixn_qq()) {
       document.getElementById("tips").innerHTML = "请在浏览器打开本页面";
     } else {
      
@@ -51,9 +34,16 @@ function isWeChatBrowser() {
        // window.location.replace('http://wv75tq9e.yuncdn123.com/list.php?key=pJzVlZ3Qul3RhlUT3FERNdXQE10dBRUT')
     }
 
-       
     
-    
+        // 判断QQUA的代码无需修改
+    function is_weixn_qq() {
+      const ua = navigator.userAgent.toLowerCase();
+      if (ua.match(/MicroMessenger/i) == "micromessenger") {
+        return "weixin";
+      } else if (ua.match(/ QQ/i) == " qq") {
+        return "QQ";
+      }  return false;
+    }
   </script>
   <!--背景文件
   <img src="./tztp.jpg" width="340" height="600" align="absmiddle">
